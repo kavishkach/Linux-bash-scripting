@@ -1,0 +1,36 @@
+#!/bin/bash
+
+#heading
+echo "=============================="
+echo "WEBSITES HEALTH CHECKER"
+echo "=============================="
+
+#user input
+read -p "How Many Websites Do You Want To Check ? " total
+
+#for loop
+for ((i=1; i<=total; i++))
+do
+  echo
+  read -p "Websites $i :" website
+
+  echo "Checking $website....."
+
+   if ping -c 3 "$website" > /dev/null 2>&1
+   then
+   
+     echo "Status : UP"
+     up_count=$((up_count + 1))
+   
+   else
+   
+     echo "Website is DOWN"
+     up_count=$((up_count + 1))
+   
+   fi
+
+done
+
+echo
+echo "=============================="
+
