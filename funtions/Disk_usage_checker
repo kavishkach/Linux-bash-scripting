@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "=========================="
+echo "DISK USAGE CHECKER"
+echo "==========================" 
+
+disk-usage() {
+ df -h
+}
+
+disk-usage
