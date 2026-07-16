@@ -37,6 +37,25 @@ check_website(){
  fi
 }
 
+check_ip(){
+ echo
+ echo "===IP ADDRESS====="
+ hostname -I
+}
+
+check_running_process(){
+ echo
+ echo "===RUNNING PROCESS====="
+ ps aux
+
+}
+
+date_time(){
+ echo
+ echo "===DATE====="
+ date
+}
+
 #select service
 while true
 do
@@ -47,7 +66,10 @@ do
     echo "2. Check Disk Usage"
     echo "3. Check Memory Usage"
     echo "4. Check Website"
-    echo "5. Exit"
+    echo "5. Check Ip Address"
+    echo "6. Show Running Process"
+    echo "7. Show date"
+    echo "8. Exit"
 
     echo
     read -p "Choose an option: " choice
@@ -63,8 +85,17 @@ do
 
     elif [ "$choice" -eq 4 ]; then
         check_website
-
+    
     elif [ "$choice" -eq 5 ]; then
+        check_ip
+    
+    elif [ "$choice" -eq 6 ]; then
+        check_running_process
+   
+    elif [ "$choice" -eq 7 ]; then
+        date_time
+
+    elif [ "$choice" -eq 8 ]; then
         echo
         echo "Server Health Checker closed."
         break
